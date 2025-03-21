@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSD to HTML</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen font-poppins">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center">
+                        <img class="h-[40px] sm:h-[50px] md:h-[55px] w-auto object-contain" src="images/logo.png" alt="Logo">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#" class="text-accent hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Home</a>
+                    <a href="#" class="text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">About</a>
+                    <a href="#" class="text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Brands</a>
+                    <a href="#" class="text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Parts</a>
+                    <a href="#" class="text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Equipment</a>
+                    <a href="#" class="text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Contact</a>
+                    <button class="bg-primary-gradient hover:bg-primary-gradient-hover transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md text-custom-white px-4 py-2 rounded-full font-medium flex items-center gap-[3px]">
+                        <span class="flex items-center gap-2">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="22px" height="22px">
+                                <image  x="0px" y="0px" width="22px" height="22px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAQAAABuvaSwAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfpAxQNFjkuAfR+AAABzUlEQVQoz32Ty0uUURiHn2/mG3MxOWWUZnQRu0C0EEmjRSE0KcUsooVBLapN2aKQAv8Ai3YuA6NFRFEwGUGLLquiFkI3CCyICMISCYnMomG8PW36nIuOv3dxeH885+V3DufgkDNW0pQ3pVCB8pAbjDNFQEFSTYqLLGdDwQyB12RJsI5SjTDHcZqKrRCIA38Jy+AJVhIrtcL59SyPikKcppcFKswb43ORPw5LwQP0F/krloLP0EQtIZPESDLND4YrwwOLTULmitvovN3ILkLGeEuMDJIGqmggQ4aGaLNeEjfZZcrATveIdXa6xXtOm1P1t3dNOg+XV61fnLTHOrHRPv/4zfUR3OEztxr3mv1WWe0bP5gSU94yIa72q1ejzDVsJgQ2Us8U7bTQzi9CnnOMCWCc/exdPMaQt42LafWyp0RM+CSavIpWkgRsZxvQwidmgRe8optGQmCaXAQf4SU7iPOUQSD3/0rz7KabXs4BMBfBWdp4xyz7OAxkOcAyIM0IbcT4CKSoQ+1bkLlGPSiu9bHaI+JJ3wfKT0ZLfklAnmYCuhgkYA3fkRNc53zgBVpJYtmbGKWeQwxxh2F2cpRmrtCDlavTB86oee/bIfIP/HEf0ui/tMYAAAAASUVORK5CYII=" />
+                            </svg>
+                            Need Estimate?
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button type="button" id="mobile-menu-button" class="text-custom-black hover:text-accent focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="block px-3 py-2 text-accent hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Home</a>
+                <a href="#" class="block px-3 py-2 text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">About</a>
+                <a href="#" class="block px-3 py-2 text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Brands</a>
+                <a href="#" class="block px-3 py-2 text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Parts</a>
+                <a href="#" class="block px-3 py-2 text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Equipment</a>
+                <a href="#" class="block px-3 py-2 text-custom-black hover:text-accent transition-colors duration-300 uppercase text-para-16 font-medium">Contact</a>
+                <button class="bg-primary-gradient hover:bg-primary-gradient-hover transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md text-custom-white w-full px-6 py-2 rounded-full font-medium mt-2 flex items-center justify-center gap-[3px]">
+                    <span class="flex items-center gap-1">
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="22px" height="22px">
+                            <image  x="0px" y="0px" width="22px" height="22px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAQAAABuvaSwAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfpAxQNFjkuAfR+AAABzUlEQVQoz32Ty0uUURiHn2/mG3MxOWWUZnQRu0C0EEmjRSE0KcUsooVBLapN2aKQAv8Ai3YuA6NFRFEwGUGLLquiFkI3CCyICMISCYnMomG8PW36nIuOv3dxeH895+V3DufgkDNW0pQ3pVCB8pAbjDNFQEFSTYqLLGdDwQyB12RJsI5SjTDHcZqKrRCIA38Jy+AJVhIrtcL59SyPikKcppcFKswb43ORPw5LwQP0F/krloLP0EQtIZPESDLND4YrwwOLTULmitvovN3ILkLGeEuMDJIGqmggQ4aGaLNeEjfZZcrATveIdXa6xXtOm1P1t3dNOg+XV61fnLTHOrHRPv/4zfUR3OEztxr3mv1WWe0bP5gSU94yIa72q1ejzDVsJgQ2Us8U7bTQzi9CnnOMCWCc/exdPMaQt42LafWyp0RM+CSavIpWkgRsZxvQwidmgRe8optGQmCaXAQf4SU7iPOUQSD3/0rz7KabXs4BMBfBWdp4xyz7OAxkOcAyIM0IbcT4CKSoQ+1bkLlGPSiu9bHaI+JJ3wfKT0ZLfklAnmYCuhgkYA3fkRNc53zgBVpJYtmbGKWeQwxxh2F2cpRmrtCDlavTB86oee/bIfIP/HEf0ui/tMYAAAAASUVORK5CYII=" />
+                        </svg>
+                        Need Estimate?
+                    </span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="pt-16 md:pt-20">
+        <!-- Hero Section -->
+        <div class="bg-hero-pattern bg-cover bg-center min-h-[700px] xs:min-h-[700px] sm:min-h-[550px] md:min-h-[600px] relative">
+            <div class="absolute inset-0 bg-custom-black bg-opacity-50">
+                <div class="max-w-5xl mx-auto px-4 h-full flex items-center">
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full gap-12 sm:gap-12 md:gap-8 lg:gap-10 py-8">
+                        <!-- Left side content -->
+                        <div class="w-full md:w-[52%] text-center md:text-left">
+                            <h1 class="text-heading-35 sm:text-heading-64 font-bold text-accent font-poppins mb-4 sm:mb-6 leading-tight">
+                                GROW <span class="text-custom-white">YOUR BUSINESS</span> <span class="text-primary"> WITH
+                                ANNCAR</span> 
+                            </h1>
+                            <p class="text-lg sm:text-para-29 text-custom-white font-normal font-poppins leading-tight">
+                                HIGH QUALITY HEAVY EQUIPMENT <br class="hidden sm:block">
+                                SPARE PARTS SUPPLIER
+                            </p>
+                        </div>
+                        <!-- Right side image -->
+                        <div class="w-full md:w-[47%] flex flex-col items-center relative">
+                            <img src="images/side-image-1.png" alt="Hero Image" class="w-full max-w-[90%] sm:max-w-[95%] md:max-w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-contain">
+                            <!-- Slider indicators -->
+                            <div class="absolute bottom-[-30px] md:bottom-[20px] lg:bottom-[40px] left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-2">
+                                <div class="w-2.5 h-2.5 rounded-full border-2 border-custom-white bg-custom-white"></div>
+                                <div class="w-2.5 h-2.5 rounded-full border-2 border-custom-white bg-transparent"></div>
+                                <div class="w-2.5 h-2.5 rounded-full border-2 border-custom-white bg-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Section -->
+        <section class="pt-20 pb-10 md:pb-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-0">
+                    <!-- Column 1 -->
+                    <div class="flex flex-col items-start text-start border-t border-l border-r border-b md:border-r-0 border-custom-black/10 p-4 md:p-6">
+                        <div class="flex flex-row md:flex-col lg:flex-row items-center md:items-start lg:items-center mb-3 md:mb-4 gap-2 md:gap-4">
+                            <img src="images/high-speed.png" alt="High Speed" class="h-10 md:h-16 w-auto">
+                            <h3 class="text-heading-20 md:text-heading-30 font-bold text-custom-black leading-tight capitalize">
+                                Fast Response
+                            </h3>
+                        </div>
+                        <p class="text-sm md:text-para-16 text-custom-black">
+                            For most part requests, we answer within 1hr (standard quote response time less than 24hrs).
+                        </p>
+                    </div>
+                    
+                    <!-- Column 2 -->
+                    <div class="flex flex-col items-start text-start border-l border-r border-b md:border-r-0 border-custom-black/10 p-4 md:p-6">
+                        <div class="flex flex-row md:flex-col lg:flex-row items-center md:items-start lg:items-center mb-3 md:mb-4 gap-2 md:gap-4">
+                            <img src="images/available.png" alt="Availability" class="h-10 md:h-16 w-auto">
+                            <h3 class="text-heading-20 md:text-heading-30 font-bold text-custom-black leading-tight capitalize">
+                                Large Availability
+                            </h3>
+                        </div>
+                        <p class="text-sm md:text-para-16 text-custom-black">
+                            We offer a wide range of original/genuine and aftermarket parts for Komatsu®, JCB®, and Caterpillar®.
+                        </p>
+                    </div>
+                    
+                    <!-- Column 3 -->
+                    <div class="flex flex-col items-start text-start border-l border-r border-b border-custom-black/10 p-4 md:p-6">
+                        <div class="flex flex-row md:flex-col lg:flex-row items-center md:items-start lg:items-center mb-3 md:mb-4 gap-2 md:gap-4">
+                            <img src="images/worldwide.png" alt="Worldwide Shipping" class="h-10 md:h-16 w-auto">
+                            <h3 class="text-heading-20 md:text-heading-30 font-bold text-custom-black leading-tight capitalize">
+                                Worldwide Shipping
+                            </h3>
+                        </div>
+                        <p class="text-sm md:text-para-16 text-custom-black">
+                            We offer a wide range of original/genuine and aftermarket parts for Komatsu®, JCB®, and Caterpillar®.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Section -->
+        <section class="pb-12 sm:pb-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="flex flex-col md:flex-row items-center gap-0 sm:gap-8 md:gap-12">
+                    <!-- Left Column - Image -->
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                        <img src="images/side-image-2.png" alt="Why Choose Us" class="w-full h-auto rounded-lg shadow-sm">
+                    </div>
+                    
+                    <!-- Right Column - Content -->
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-heading-20 sm:text-heading-35 font-bold mb-6 sm:mb-8 relative">
+                            <span class="text-accent">WHY</span> <span class="text-secondary">ANNCAR</span>
+                            <span class="absolute bottom-[-10px] sm:bottom-[-15px] left-0 w-[25%] h-[3px] bg-primary"></span>
+                        </h2>
+                        <p class="text-sm sm:text-para-16 text-custom-black">
+                            We have partnered with many suppliers and have the ability to acquire thousands of spare parts for your heavy machinery. By utilizing our large availability of genuine and aftermarket spare parts, and our extensive supplier network, you are sure to find the parts you need.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parts Section -->
+        <section class="py-8 sm:py-12 md:py-16 bg-bg-3 bg-cover bg-center bg-blend-overlay bg-opacity-80">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-0 sm:gap-12 md:gap-16 lg:gap-20 mb-8 sm:mb-12">
+                    <!-- Column 1 -->
+                    <div class="flex flex-col items-start mb-8 sm:mb-0">
+                        <div class="flex justify-start items-end w-full mb-2 sm:mb-3">
+                            <img src="images/spare-parts.png" alt="Engine Parts" class="w-[45px] h-[45px] sm:w-[50px] sm:h-[50px] md:w-[65px] md:h-[65px] object-contain">
+                        </div>
+                        <h3 class="text-[22px] sm:text-[26px] md:text-heading-30 font-bold mb-3 sm:mb-4 relative leading-tight">
+                            <span class="text-custom-white">ENGINE</span> <span class="text-accent">PARTS</span>
+                            <span class="absolute bottom-[-8px] left-0 w-[80px] h-[3px] bg-primary"></span>
+                        </h3>
+                        <p class="text-[14px] sm:text-para-16 text-custom-white mb-4">
+                            Anncar has an extensive coverage of Engine Replacement Parts for Komatsu®, JCB®, Caterpillar®, and other brands. We provide quality solutions to our customers needs and ensure optimum performance and durability in each specific application.
+                            <a href="#" class="inline-block text-custom-white font-medium hover:underline ml-1 italic uppercase text-[14px] sm:text-para-16">LEARN MORE &gt;</a>
+                        </p>
+                    </div>
+                    
+                    <!-- Column 2 -->
+                    <div class="flex flex-col items-start mb-8 sm:mb-0">
+                        <div class="flex justify-start items-end w-full mb-2 sm:mb-3">
+                            <img src="images/bulldozer.png" alt="Ground Engaging Tools" class="w-[45px] h-[45px] sm:w-[50px] sm:h-[50px] md:w-[65px] md:h-[65px] object-contain">
+                        </div>
+                        <h3 class="text-[22px] sm:text-[26px] md:text-heading-30 font-bold mb-3 sm:mb-4 relative leading-tight">
+                            <span class="text-custom-white">GROUND ENGAGING</span> <span class="text-accent">TOOLS</span>
+                            <span class="absolute bottom-[-8px] left-0 w-[80px] h-[3px] bg-primary"></span>
+                        </h3>
+                        <p class="text-[14px] sm:text-para-16 text-custom-white mb-4">
+                            The wear of Ground Engaging Tools (GET) results in high costs, down time and operational inefficiency. Choosing the right Ground Engaging Tools can make a big difference in your operation's productivity and profitability. Anncar offers a wide range of quality Ground Engaging Tools for a variety of equipment manufactures like CATERPILLAR®, KOMATSU®, and JCB®.
+                            <a href="#" class="inline-block text-custom-white font-medium hover:underline ml-1 italic uppercase text-[14px] sm:text-para-16">LEARN MORE &gt;</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-0 sm:gap-12 md:gap-16 lg:gap-20">
+                    <!-- Column 3 -->
+                    <div class="flex flex-col items-start mb-8 sm:mb-0">
+                        <div class="flex justify-start items-end w-full mb-1">
+                            <img src="images/Vector.png" alt="Undercarriage Parts" class="w-[55px] h-[55px] sm:w-[65px] sm:h-[65px] md:w-[85px] md:h-[75px] lg:w-[112px] lg:h-[80px] object-contain">
+                        </div>
+                        <h3 class="text-[22px] sm:text-[26px] md:text-heading-30 font-bold mb-3 sm:mb-4 relative leading-tight">
+                            <span class="text-custom-white">UNDERCARRIAGE</span> <span class="text-accent">PARTS</span>
+                            <span class="absolute bottom-[-8px] left-0 w-[80px] h-[3px] bg-primary"></span>
+                        </h3>
+                        <p class="text-[14px] sm:text-para-16 text-custom-white mb-4">
+                            Undercarriage parts are usually the most expensive parts when it comes to the maintenance of your crawler equipment. This means you need it done correctly, quickly and at a competitive price. With the help of our experienced Sales Team, we can help you to find the right parts with the highest quality, and get them to you as quickly and economically as possible.
+                            <a href="#" class="inline-block text-custom-white font-medium hover:underline ml-1 italic uppercase text-[14px] sm:text-para-16">LEARN MORE &gt;</a>
+                        </p>
+                    </div>
+                    
+                    <!-- Column 4 -->
+                    <div class="flex flex-col items-start">
+                        <div class="flex justify-start items-end w-full mb-2 sm:mb-3">
+                            <img src="images/kissclipart-car.png" alt="Misc Parts" class="w-[45px] h-[45px] sm:w-[50px] sm:h-[50px] md:w-[65px] md:h-[65px] object-contain">
+                        </div>
+                        <h3 class="text-[22px] sm:text-[26px] md:text-heading-30 font-bold mb-3 sm:mb-4 relative leading-tight">
+                            <span class="text-custom-white">MISC</span> <span class="text-accent">PARTS</span>
+                            <span class="absolute bottom-[-8px] left-0 w-[80px] h-[3px] bg-primary"></span>
+                        </h3>
+                        <p class="text-[14px] sm:text-para-16 text-custom-white mb-4">
+                            Anncar has a wide range of JCB®, Komatsu®, and Caterpillar® miscellaneous repair and replacement parts. Since we only source from the best and most trusted names in the industry, you can rest assured that we have the right part at the right price and the quality you expect.
+                            <a href="#" class="inline-block text-custom-white font-medium hover:underline ml-1 italic uppercase text-[14px] sm:text-para-16">LEARN MORE &gt;</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Section -->
+        <section class="py-8 sm:py-12 md:py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="flex flex-col md:flex-row items-start gap-8 sm:gap-10 md:gap-12">
+                    <!-- Left Column - Heading and Brands -->
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-heading-20 leading-snug sm:text-heading-35 font-bold mb-6 sm:mb-8 relative font-poppins">
+                            <span class="text-secondary">WE SELL THE</span> <span class="text-accent">TOP BRANDS</span>
+                            <span class="absolute bottom-[-10px] sm:bottom-[-15px] left-0 w-[37%] h-[3px] bg-primary"></span>
+                        </h2>
+                        
+                        <!-- Brand names -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-10 md:mt-12">
+                            <!-- Column 1 -->
+                            <div class="w-full">
+                                <h4 class="text-heading-20 font-bold text-custom-black mb-2 sm:mb-3 font-poppins">KOMATSU®</h4>
+                                <p class="text-para-14 text-custom-black font-poppins">Anncar is proud to offer the largest selection of genuine and high quality aftermarket Komatsu® parts.</p>
+                            </div>
+                            
+                            <!-- Column 2 -->
+                            <div class="w-full">
+                                <h4 class="text-heading-20 font-bold text-custom-black mb-2 sm:mb-3 font-poppins">JCB®</h4>
+                                <p class="text-para-14 text-custom-black font-poppins">Anncar offers a wide range of genuine and aftermarket parts to minimize the downtime of your machine.</p>
+                            </div>
+                            
+                            <!-- Column 3 -->
+                            <div class="w-full sm:col-span-2 md:col-span-1 lg:col-span-2 lg:w-1/2">
+                                <h4 class="text-heading-20 font-bold text-custom-black mb-2 sm:mb-3 font-poppins">CAT®</h4>
+                                <p class="text-para-14 text-custom-black font-poppins">Buy genuine or aftermarket parts, engine parts and other common repair parts to avoid down time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Image -->
+                    <div class="w-full md:w-1/2">
+                        <img src="images/side-image-3.jpeg" alt="Brand Partners" class="w-full h-auto rounded-lg shadow-sm">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Request Section -->
+        <section class="py-10 sm:py-16 md:py-20 bg-bg-2 bg-cover bg-center relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 relative">
+                <div class="relative">
+                    <!-- Left Column - Image -->
+                    <div class="w-full sm:w-full md:w-[70%] relative z-10 sm:block">
+                        <img src="images/side-image-4.png" alt="Request Image" class="w-full h-auto sm:h-[350px] md:h-[350px] object-contain sm:object-cover mx-auto">
+                    </div>
+                    
+                    <!-- Right Column - Content -->
+                    <div class="w-full md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 md:w-[70%] bg-custom-navy p-6 sm:p-6 md:p-9 md:z-20 rounded-lg sm:rounded-none">
+                        <h2 class="text-heading-20 sm:text-heading-30 md:text-heading-35 font-bold mb-3 sm:mb-4 md:mb-6 font-poppins">
+                            <span class="text-primary uppercase">We have the part</span> <span class="text-accent uppercase">you need</span>
+                        </h2>
+                        <p class="text-para-14 sm:text-para-16 text-custom-white mb-4 sm:mb-4 md:mb-5 font-poppins leading-tight sm:leading-normal">
+                            We offer a vast selection of new aftermarket, rebuilt and used parts for Caterpillar®, Komatsu®, JCB® and other popular heavy equipment manufacturers.
+                        </p>
+                        <button class="bg-primary uppercase hover:bg-primary/90 transition-all duration-300 text-custom-white px-4 py-2 rounded-full font-medium font-poppins flex items-center gap-2 text-sm sm:text-para-16">
+                            Request Part
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bg-custom-navy pt-8 sm:pt-10 md:pt-12">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <!-- Row 1 - Logo -->
+                <div class="flex justify-center mb-8 sm:mb-10">
+                    <img src="images/logo-footer.png" alt="Footer Logo" class="h-12 sm:h-16 md:h-20 w-auto object-contain">
+                </div>
+                
+                <!-- Row 2 - 4 Columns -->
+                <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
+                    <!-- Column 1 - Grow with ANNCAR -->
+                    <div class="xs:col-span-2 md:col-span-1">
+                        <h4 class="text-base sm:text-lg font-bold text-custom-white mb-3 sm:mb-4 font-poppins">GROW WITH ANNCAR</h4>
+                        <p class="text-gray-300 text-xs sm:text-sm font-poppins mb-4 sm:mb-5 leading-relaxed">
+                            We are dedicated to the sales of heavy machinery spare parts for KOMATSU ®, JCB ®, and CATERPILLAR ®
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-accent hover:text-white transition-colors">
+                                <img src="images/social.png" alt="Social Media" class="h-5 sm:h-6 w-auto">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2 - Get In Touch -->
+                    <div>
+                        <h4 class="text-base sm:text-lg font-bold text-custom-white mb-3 sm:mb-4 font-poppins">Get In Touch</h4>
+                        <ul class="space-y-2 sm:space-y-3">
+                            <li class="flex items-start">
+                                <img src="images/telephone-call.png" alt="Phone" class="h-auto w-4 mr-2 mt-0.5">
+                                <span class="text-gray-300 text-xs sm:text-sm font-poppins">+1 786.842.0320</span>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="images/email.png" alt="Email" class="h-auto w-4 mr-2 mt-1.5">
+                                <span class="text-gray-300 text-xs sm:text-sm font-poppins break-all">sales@anncarequipment.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="images/location.png" alt="Location" class="h-auto w-4 mr-2 mt-0.5">
+                                <span class="text-gray-300 text-xs sm:text-sm font-poppins">7275 NW 68th Street, Bay #9 Miami, FL 33166</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3 - Useful Links -->
+                    <div>
+                        <h4 class="text-base sm:text-lg font-bold text-custom-white mb-3 sm:mb-4 font-poppins">Useful Links</h4>
+                        <ul class="space-y-1 sm:space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-accent text-xs sm:text-sm font-poppins transition-colors">Engine Parts</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-accent text-xs sm:text-sm font-poppins transition-colors">Ground Engaging Tools</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-accent text-xs sm:text-sm font-poppins transition-colors">Undercarriage Parts</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-accent text-xs sm:text-sm font-poppins transition-colors">Miscellaneous Parts</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 4 - Get Free Estimate -->
+                    <div>
+                        <h4 class="text-base sm:text-lg font-bold text-custom-white mb-3 sm:mb-4 font-poppins">Get Free Estimate</h4>
+                        <p class="text-gray-300 text-xs sm:text-sm font-poppins mb-4 sm:mb-5 leading-relaxed">
+                            Fill out the form below and request a free and secure quote.
+                        </p>
+                        <a href="#" class="bg-primary-gradient hover:bg-primary-gradient-hover transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md text-custom-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-medium text-xs sm:text-sm font-poppins inline-block">
+                            <span class="flex items-center gap-1">
+                                Request A Quote
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-8 sm:mt-10 bg-custom-black">
+                <p class="text-gray-400 text-[10px] sm:text-xs text-center font-poppins py-3 sm:py-4">
+                    © 2023 Anncar Heavy Equipment Parts. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuButton.querySelector('svg');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Toggle between menu and close icons
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+            } else {
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+            }
+        });
+
+        // Active menu item functionality
+        const navLinks = document.querySelectorAll('#mobile-menu a, .md\\:flex a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Remove active state from all links
+                navLinks.forEach(l => {
+                    l.classList.remove('text-accent');
+                    l.classList.add('text-custom-black');
+                });
+                
+                // Add active state to clicked link
+                link.classList.remove('text-custom-black');
+                link.classList.add('text-accent');
+            });
+        });
+    </script>
+</body>
+</html> 
