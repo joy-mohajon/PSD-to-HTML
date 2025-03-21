@@ -397,7 +397,7 @@
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            // Toggle between menu and close icons
+            
             if (mobileMenu.classList.contains('hidden')) {
                 menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
             } else {
@@ -405,7 +405,6 @@
             }
         });
 
-        // Active menu item functionality
         const navLinks = document.querySelectorAll('#mobile-menu a, .md\\:flex a');
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
